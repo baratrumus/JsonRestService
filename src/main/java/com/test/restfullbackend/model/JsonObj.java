@@ -24,22 +24,24 @@ public class JsonObj {
     private Integer id;
 
     //@NaturalId
-    private String json_id;
+    @JoinColumn (name = "json_id")
+    private String jsonId;
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    private String json_node;
+    @JoinColumn (name = "json_node")
+    private String jsonNode;
 
     public JsonObj() {
     }
 
-    public JsonObj(String json_id, String json_node) {
-        this.json_id = json_id;
-        this.json_node = json_node;
+    public JsonObj(String jsonId, String jsonNode) {
+        this.jsonId = jsonId;
+        this.jsonNode = jsonNode;
     }
 
-    public JsonObj(String json_id) {
-        this.json_id = json_id;
+    public JsonObj(String jsonId) {
+        this.jsonId = jsonId;
     }
 
     public Integer getId() {
@@ -50,37 +52,41 @@ public class JsonObj {
         this.id = id;
     }
 
-    public String getJson_id() {
-        return json_id;
+    public String getJsonId() {
+        return jsonId;
     }
 
-    public void setJson_id(String json_id) {
-        this.json_id = json_id;
+    public void setJsonId(String jsonId) {
+        this.jsonId = jsonId;
     }
 
-    public String getJson_node() {
-        return json_node;
+    public String getJsonNode() {
+        return jsonNode;
     }
 
-    public void setJson_node(String json_node) {
-        this.json_node = json_node;
+    public void setJsonNode(String jsonNode) {
+        this.jsonNode = jsonNode;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         JsonObj jsonObj = (JsonObj) o;
-        return json_node.equals(jsonObj.json_node);
+        return jsonNode.equals(jsonObj.jsonNode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(json_node);
+        return Objects.hash(jsonNode);
     }
 
     @Override
     public String toString() {
-        return json_node;
+        return jsonNode;
     }
 }

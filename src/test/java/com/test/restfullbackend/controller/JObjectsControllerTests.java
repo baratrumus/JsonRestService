@@ -1,7 +1,7 @@
 package com.test.restfullbackend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.test.restfullbackend.Service.JsonServiceImpl;
+import com.test.restfullbackend.service.JsonServiceImpl;
 import com.test.restfullbackend.model.JsonObj;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -68,9 +68,9 @@ public class JObjectsControllerTests {
     @Test
     public void whenCreateItsCreated() throws Exception {
         String jSrting =  "{\"id\": \"13\", \"name\": \"Иванов\"}";
-        JsonObj jo_created = new JsonObj( "13", jSrting);
-        jo_created.setId(1);
-        given(this.service.create(jo_created)).willReturn(jo_created);
+        JsonObj joCreated = new JsonObj("13", jSrting);
+        joCreated.setId(1);
+        given(this.service.create(joCreated)).willReturn(joCreated);
         this.mockMvc.perform(post("/")
                 .content(jSrting))
                 .andDo(print())
@@ -81,8 +81,8 @@ public class JObjectsControllerTests {
     @Test
     public void whenNotCreatedItsBadRequest() throws Exception {
         String jSrting =  "{\"id\": \"13\", \"name\": \"Иванов\"}";
-        JsonObj jo_created = new JsonObj( "13", jSrting);
-        given(this.service.create(jo_created)).willReturn(jo_created);
+        JsonObj joCreated = new JsonObj("13", jSrting);
+        given(this.service.create(joCreated)).willReturn(joCreated);
         this.mockMvc.perform(post("/")
                 .content(jSrting))
                 .andDo(print())

@@ -1,4 +1,4 @@
-package com.test.restfullbackend.Service;
+package com.test.restfullbackend.service;
 
 import com.test.restfullbackend.model.JsonObj;
 import java.util.List;

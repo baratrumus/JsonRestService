@@ -1,4 +1,4 @@
-package com.test.restfullbackend.Service;
+package com.test.restfullbackend.service;
 
 import com.test.restfullbackend.model.JsonObj;
 import com.test.restfullbackend.repository.JObjectsRepository;
@@ -12,8 +12,8 @@ public class JsonServiceImpl implements JsonService {
     private final JObjectsRepository repository;
 
     @Autowired
-    public JsonServiceImpl(JObjectsRepository JObjectsRepository) {
-        this.repository = JObjectsRepository;
+    public JsonServiceImpl(JObjectsRepository jObjectsRepository) {
+        this.repository = jObjectsRepository;
     }
 
     /**

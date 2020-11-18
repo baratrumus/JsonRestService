@@ -1,6 +1,6 @@
 package com.test.restfullbackend.controller;
 
-import com.test.restfullbackend.Service.JsonServiceImpl;
+import com.test.restfullbackend.service.JsonServiceImpl;
 import com.test.restfullbackend.model.JsonObj;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

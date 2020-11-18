@@ -1,7 +1,6 @@
 package com.test.restfullbackend.service;
 
 
-import com.test.restfullbackend.Service.JsonService;
 import com.test.restfullbackend.model.JsonObj;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,19 +24,19 @@ public class JsonServiceTest {
 
     @Test
     public void whenCreateThenSaveInDb() {
-        JsonObj jo = new JsonObj( "999", "{\"id\": \"999\", \"name\": \"Пржевальский\"}");
-        JsonObj jo_created = this.service.create(jo);
+        JsonObj jo = new JsonObj("999", "{\"id\": \"999\", \"name\": \"Пржевальский\"}");
+        JsonObj joCreated = this.service.create(jo);
         List<JsonObj> result = this.service.getAll();
-        assertNotNull(jo_created.getId());
-        assertTrue(result.contains(jo_created));
+        assertNotNull(joCreated.getId());
+        assertTrue(result.contains(joCreated));
     }
 
 
     @Test
     public void whenGetAllTheyHaveGotten() {
-        JsonObj jo = new JsonObj( "13", "{\"id\": \"13\", \"name\": \"Петров\"}");
-        JsonObj jo1 = new JsonObj( "55", "{\"id\": \"55\", \"name\": \"Сидоров\"}");
-        JsonObj jo2 = new JsonObj( "59", "{\"id\": \"59\", \"name\": \"Иванов\"}");
+        JsonObj jo = new JsonObj("13", "{\"id\": \"13\", \"name\": \"Петров\"}");
+        JsonObj jo1 = new JsonObj("55", "{\"id\": \"55\", \"name\": \"Сидоров\"}");
+        JsonObj jo2 = new JsonObj("59", "{\"id\": \"59\", \"name\": \"Иванов\"}");
         this.service.create(jo);
         this.service.create(jo1);
         this.service.create(jo2);
@@ -48,8 +47,8 @@ public class JsonServiceTest {
 
     @Test
     public void whenGetByIdItsFound() {
-        JsonObj jo = new JsonObj( "13", "{\"id\": \"13\", \"name\": \"Петров\"}");
-        JsonObj jo1 = new JsonObj( "13", "{\"id\": \"13\", \"name\": \"Сидоров\"}");
+        JsonObj jo = new JsonObj("13", "{\"id\": \"13\", \"name\": \"Петров\"}");
+        JsonObj jo1 = new JsonObj("13", "{\"id\": \"13\", \"name\": \"Сидоров\"}");
         this.service.create(jo);
         this.service.create(jo1);
         List<JsonObj> result = this.service.getById("13");
